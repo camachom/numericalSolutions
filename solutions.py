@@ -1,4 +1,4 @@
-from sympy import pprint, parse_expr, symbols, Float, Rational, sympify
+from sympy import pprint, parse_expr, symbols, Float, Rational, sympify, lambdify
 from tabulate import tabulate
 from decimal import *
 
@@ -52,7 +52,7 @@ def eulers_method(function, initial_x, initial_y, h, target_x):
 
 
 def runge_kutta_method(function, initial_x, initial_y, h, target_x):
-    values = {"x": Float(initial_x, 8), "y": Float(initial_y, 8)}
+    values = {"x": Decimal(initial_x), "y": Decimal(initial_y)}
     approximations = {}
     exact_h = Decimal(h)
 
@@ -60,8 +60,6 @@ def runge_kutta_method(function, initial_x, initial_y, h, target_x):
     while values["x"] < Decimal(target_x):
         k_1 = exact_h * parse_expr(function, values)
         k_2 = parse_expr(function, evaluate=False)
-        new = k_2.subs("x", values["x"] + Decimal(0.5) * Decimal(exact_h))
-        new2 = new.subs("y", values["y"] + Decimal(0.5))
 
         k_3 = exact_h * parse_expr(function, {
             "x": values["x"] + (Float(Rational(1 / 2), 8) * exact_h),
@@ -74,10 +72,10 @@ def runge_kutta_method(function, initial_x, initial_y, h, target_x):
 
         if n == 1:
             print("******************")
-            print("function", k_2)
-            print("new", new)
-            print("new2", new2)
-            print("eval", sympify(new2).evalf())
+            testing = lambdify(
+                ["x", "y"], parse_expr(function), "numpy")
+            print(exact_h * testing(Decimal(values["x"]) + (Decimal(0.5) *
+                                                            Decimal(exact_h)), Decimal(values["y"]) + Decimal(0.5) * k_1))
             print("******************")
 
         approximations[n] = {
@@ -101,8 +99,10 @@ PROBLEMS = [
     ["4*y - 1", 0, 1, 0.05, 0.5],
     ["- (2 * x * y) / (1 + x**2)", 0, 1, 0.1, 1],
     ["x - y**2", 0, 2, 0.05, 0.5],
-    ["-1 * (x**2) * y", 0, 1, 0.2, 1],
+    ["-1 * (x*x) * y", 0, 1, 0.2, 1],
     ["2 * x * y**2", 0, 0.5, 0.1, 1]
+
+
 ]
 
 if __name__ == "__main__":
