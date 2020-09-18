@@ -71,7 +71,6 @@ def runge_kutta_method(function, initial_x, initial_y, h, target_x):
         })
 
         if n == 1:
-            print("******************")
             testing = lambdify(
                 ["x", "y"], parse_expr(function), "numpy")
             print(exact_h * testing(Decimal(values["x"]) + (Decimal(0.5) *
