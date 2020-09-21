@@ -8,8 +8,8 @@ I wanted to avoid hard coding individual solutions, so I came up with a more gen
 
 ```python
 >>> from sympy import parse_expr
->>> str_expr = "x**2 + 3*x - 1/2"
->>> parse_expr("x**2", {"x": 8})
+>>> str_expr = "x**2"
+>>> parse_expr(str_expr, {"x": 8})
 64
 ```
 
