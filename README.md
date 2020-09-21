@@ -7,12 +7,10 @@ This repo is my implementation of the Euler and Runga-Kutta methods for numerica
 I wanted to avoid hard coding individual solutions, so I came up with a more general approach. Using `parse_expr`, `sympy` is able to take a string and convert it into an expression. For example:
 
 ```python
+>>> from sympy import parse_expr
 >>> str_expr = "x**2 + 3*x - 1/2"
->>> expr = sympify(str_expr)
->>> expr
-x**2 + 3*x - 1/2
->>> expr.subs(x, 2)
-19/2
+>>> parse_expr("x**2", {"x": 8})
+64
 ```
 
 The rest is trivial. I just substitute for `x` and `y`, define the needed variables and evaluate the formula:
