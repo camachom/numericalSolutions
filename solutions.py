@@ -1,6 +1,5 @@
 from sympy import pprint, parse_expr, Float
 from tabulate import tabulate
-from decimal import Decimal
 
 
 def print_table(euler, runge):
