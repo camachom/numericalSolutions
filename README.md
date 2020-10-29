@@ -2,9 +2,11 @@
 
 This repo is my implementation of the Euler and Runga-Kutta methods for numerical solution to first-order differential equations. In [output.txt](https://github.com/camachom/numericalSolutions/blob/master/numericalMethods/output.txt) I have provided my results for problems 11-15 on page 101 of the book "Differential Equations and Linear Algebra" by Goode.
 
-I solved [problem 11](https://github.com/camachom/numericalSolutions/blob/master/particularSolutions/ch_1_10_problem_11.pdf) and [problem 12](https://github.com/camachom/numericalSolutions/blob/master/particularSolutions/ch_1_10_problem_11.pdf) in `Latex` but I provided the PDFs for reference. This allowed me to graph and compare the actual solution against the numerical methods. 
+I solved [problem 11](https://github.com/camachom/numericalSolutions/blob/master/particularSolutions/ch_1_10_problem_11.pdf) and [problem 12](https://github.com/camachom/numericalSolutions/blob/master/particularSolutions/ch_1_10_problem_12.pdf) in `Latex` but I provided the PDFs for reference. This allowed me to graph and compare the actual solution against the numerical methods. 
 
 ## Summary of Results and Graphs
+
+The results are as expected. The Runga-Kutta approximaton is considerably more accurate in both cases. 
 
 ### Problem 11:
 ![Computation](images/computation_11.png?raw=true)
