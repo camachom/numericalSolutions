@@ -41,13 +41,13 @@ def eulers_method(function, initial_x, initial_y, h, target_x, solution):
     while values["x"] < Float(target_x):
         approximations[n] = {
             "y": values["y"] + (exact_h * parse_expr(function, values)),
-            "x": values["x"] + exact_h
+            "x": values["x"]
         }
 
         values = {"x": values["x"] + exact_h, "y": approximations[n]["y"]}
         n += 1
 
-        if(n == 11):
+        if n == 11:
             break
 
     return approximations
@@ -82,17 +82,18 @@ def runge_kutta_method(function, initial_x, initial_y, h, target_x, solution):
         })
 
         approximations[n] = {
+            "x": values["x"],
             "y": (
                 values["y"] +
                 (1 / 6)*(k_1 + (2 * k_2) + (2 * k_3) + k_4)
             ),
-            "solution": parse_expr(solution, {"x": values["x"]})
+            "solution": parse_expr(solution, {"x": values["x"] + exact_h})
         }
 
         values = {"x": values["x"] + exact_h, "y": approximations[n]["y"]}
         n += 1
 
-        if(n == 11):
+        if n == 11:
             break
 
     return approximations
@@ -107,7 +108,7 @@ PROBLEMS = [
     ["- (2 * x * y) / (1 + x**2)", 0, 1, 0.1, 1, "1 / (x**2 + 1)"],
     ["x - y**2", 0, 2, 0.05, 0.5, "0"],
     ["-1 * (x*x) * y", 0, 1, 0.2, 1, "e**(-x**3 / 3)"],
-    ["2 * x * y**2", 0, 0.5, 0.1, 1, "-(1 / (x**2 - 2))"]
+    ["2 * x * y**2", 0, 0.5, 0.1, 1, "-(1 / (x**2 - 2))"],
 ]
 
 if __name__ == "__main__":
@@ -116,6 +117,6 @@ if __name__ == "__main__":
         print("Problem", index + 11)
         pprint(parse_expr(problem[0]))
         print("******************")
-        euler = eulers_method(*problem)
         runge = runge_kutta_method(*problem)
+        euler = eulers_method(*problem)
         print_table(euler, runge)
