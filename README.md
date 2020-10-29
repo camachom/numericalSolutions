@@ -1,6 +1,12 @@
 # numericalSolutions
 
-This repo is my implementation of the Euler and Runga-Kutta methods for numerical solution to first-order differential equations. In `output.txt` I have provided my results for problems 1-5 and 11-15 on page 101 of the book "Differential Equations and Linear Algebra" by Goode.
+This repo is my implementation of the Euler and Runga-Kutta methods for numerical solution to first-order differential equations. In `output.txt` I have provided my results for problems 11-15 on page 101 of the book "Differential Equations and Linear Algebra" by Goode.
+
+I solved [problem 11](https://github.com/camachom/numericalSolutions/blob/master/ch_1_10_problem_11.pdf) and [problem 12](https://github.com/camachom/numericalSolutions/blob/master/ch_1_10_problem_11.pdf) using `Latex` but I provided the PDFs for reference. 
+
+## Summary of Reults and Graphs
+
+![Imgur](https://imgur.com/JHPkSk1)
 
 ## Description
 
