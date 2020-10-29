@@ -4,10 +4,15 @@ This repo is my implementation of the Euler and Runga-Kutta methods for numerica
 
 I solved [problem 11](https://github.com/camachom/numericalSolutions/blob/master/images/ch_1_10_problem_11.pdf) and [problem 12](https://github.com/camachom/numericalSolutions/blob/master/images/ch_1_10_problem_11.pdf) using `Latex` but I provided the PDFs for reference. 
 
-## Summary of Reults and Graphs
+## Summary of Results and Graphs
 
-For problem 11:
+### Problem 11:
 ![Computation](images/computation_11.png?raw=true)
+![Graph](images/problem_11_graph.png?raw=true)
+
+### Problem 12:
+![Computation](images/computation_12.png?raw=true)
+![Graph](images/problem_12_graph.png?raw=true)
 
 ## Description
 
@@ -42,6 +47,8 @@ The rest is trivial. I just substitute for `x` and `y`, define the needed variab
   .... values["y"] + (1 / 6)*(k_1 + (2 * k_2) + (2 * k_3) + k_4)
 
 ```
+
+The graphs were made using `matplotlib`.
 
 ## Bugs
 
