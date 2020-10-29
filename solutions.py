@@ -41,7 +41,7 @@ def eulers_method(function, initial_x, initial_y, h, target_x, solution):
     while values["x"] < Float(target_x):
         approximations[n] = {
             "y": values["y"] + (exact_h * parse_expr(function, values)),
-            "x": values["x"]
+            "x": values["x"] + exact_h
         }
 
         values = {"x": values["x"] + exact_h, "y": approximations[n]["y"]}
